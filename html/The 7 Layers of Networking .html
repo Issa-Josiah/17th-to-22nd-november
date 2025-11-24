@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+            <title>The OSI Model – The 7 Layers of Networking Explained in Plain English</title>
+        
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/css2">
+        
+
+        
+        
+    <link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/prism.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+</noscript>
+<link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/prism-unescaped-markup.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+</noscript>
+
+<script type="text/javascript" async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/js"></script><script type="text/javascript" async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/analytics.js.download"></script><script type="text/javascript" async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/js(1)"></script><script async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/gtm.js.download"></script><script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/prism-core.min.js.download"></script>
+<script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/prism-autoloader.min.js.download"></script>
+
+
+
+        
+        <link rel="stylesheet" as="style" onload="this.onload=null;this.rel=&#39;stylesheet&#39;" href="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/global-5a272ab5e0.css">
+        <link rel="stylesheet" type="text/css" href="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/screen-73acb3583e.css">
+        <link rel="stylesheet" type="text/css" href="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/search-bar-124f5f949c.css">
+
+        
+        <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/algoliasearch.min.js.download"></script>
+        <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/autocomplete.min.js.download"></script>
+
+        
+        <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/dayjs.min.js.download"></script>
+        <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/localizedFormat.min.js.download"></script>
+        <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/relativeTime.min.js.download"></script>
+
+        
+        
+            <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/en.min.js.download"></script>
+        
+
+        
+        <script>let client,index;document.addEventListener("DOMContentLoaded",()=>{client=algoliasearch("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),index=client.initIndex("news")}),document.addEventListener("DOMContentLoaded",()=>{const e=window.screen.width,t=window.screen.height,n=e>=767&&t>=768?8:5,o=document.getElementById("search-form"),s=document.getElementById("search-input"),a=document.getElementById("dropdown-container");let i,d,c;s.addEventListener("input",e=>{i=e.target.value}),o.addEventListener("submit",e=>{e.preventDefault(),function(){if(d=document.getElementsByClassName("aa-cursor")[0],d&&i){const e=d.querySelector("a").href;window.location.assign(e)}else!d&&i&&c&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${i}`)}()});const l=autocomplete("#search-input",{hint:!1,keyboardShortcuts:["s",191],openOnFocus:!0,appendTo:a,debug:!0},[{source:autocomplete.sources.hits(index,{hitsPerPage:n}),debounce:250,templates:{suggestion:e=>(c=!0,`\n            <a href="${e.url}">\n              <div class="algolia-result">\n                <span>${e._highlightResult.title.value}</span>\n              </div>\n            </a>\n          `),empty:()=>(c=!1,'\n            <div class="aa-suggestion footer-suggestion no-hits-footer">\n              <div class="algolia-result">\n                <span>\n                  No results found\n                </span>\n              </div>\n            </div>\n          '),footer:e=>{if(!e.isEmpty)return`\n              <div class="aa-suggestion footer-suggestion">\n                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${i}">\n                  <div class="algolia-result algolia-footer">\n                    See all results for ${i}\n                  </div>\n                </a>\n              </div>\n            `}}}]).on("autocomplete:selected",(e,t,n,o)=>{d=t?t.url:`https://www.freecodecamp.org/news/search?query=${i}`,"click"!==o.selectionMethod&&"tabKey"!==o.selectionMethod&&c&&window.location.assign(d)});document.addEventListener("click",e=>{e.target!==s&&l.autocomplete.close()})}),document.addEventListener("DOMContentLoaded",()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")});const isAuthenticated=document.cookie.split(";").some(e=>e.trim().startsWith("jwt_access_token=")),isDonor=document.cookie.split(";").some(e=>e.trim().startsWith("isDonor=true"));</script>
+
+        
+            <script src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/f.txt" crossorigin="anonymous" async=""></script>
+        
+
+        
+        
+    
+        
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.querySelector('.sidebar');
+    var isSideBarDisplayed = window.getComputedStyle(sidebar).display !== 'none';
+    function prepareAdSlot(elementId) {
+        // Get the element by ID
+        const targetElement = document.getElementById(elementId);
+
+        // Ensure the element exists before proceeding
+        if (!targetElement) {
+            console.error(`Element with ID ${elementId} not found`);
+            return;
+        }
+
+        const parentElement = targetElement.parentElement;
+        // Change the background color of the parent element
+
+        if (parentElement) {
+            console.log(elementId)
+
+            if (elementId === 'gam-ad-bottom' ) {
+                parentElement.style.backgroundColor = '#eeeef0';
+                if(getComputedStyle(parentElement).visibility === 'hidden') {
+                    parentElement.style.visibility = 'inherit'; 
+                }
+            }
+
+            // Get the sibling elements
+            const siblingElements = parentElement.children;
+
+            for (let i = 0; i < siblingElements.length; i++) {
+                const sibling = siblingElements[i];
+
+                // Skip the element itself
+                if (sibling === targetElement) continue;
+
+                // Log the sibling or perform any other action
+                console.log('Found sibling:', sibling);
+
+                // Check visibility
+                if(getComputedStyle(sibling).visibility === 'hidden') {
+                    sibling.style.visibility = 'inherit'; 
+                }
+
+                // Check if display is 'none', then change it to 'block'
+                if (getComputedStyle(sibling).display === 'none') {
+                    sibling.style.display = 'block'; 
+                }
+            }
+        } else {
+            console.warn('No parent element found');
+        }
+    }
+
+    
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+
+        if(isSideBarDisplayed){
+            var sidebarHeight = sidebar.offsetHeight;
+            var adTextSideBarHeight = 0;
+            var sideBarAdContainert = 600 + 17;
+        
+            var styles = window.getComputedStyle(sidebar);
+            var avaiableSideAdSpace = sidebarHeight - adTextSideBarHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+            var numSideElements = Math.floor(avaiableSideAdSpace / sideBarAdContainert);
+            for (var i = 0; i < numSideElements; i++) {
+                // container element
+                var containerElement = document.createElement('div');
+                containerElement.classList.add('ad-wrapper');
+
+                //text element
+                var textElement = document.createElement('div');
+                textElement.classList.add('ad-text');
+                textElement.innerText = localizedAdText;
+
+                // ad element
+                var adElement = document.createElement('div');
+                var sideAdElementId = 'side-gam-ad-' + i;
+                adElement.id = sideAdElementId;
+                adElement.classList.add('side-bar-ad-slot');
+
+                // finalize setup
+                containerElement.appendChild(textElement);
+                containerElement.appendChild(adElement);
+                sidebar.appendChild(containerElement);
+                googletag.defineSlot('/23075930536/post-side', [[292, 30], [240, 400], [300, 75], [216, 54], [250, 360], [300, 50], 'fluid', [300, 31], [120, 20], [300, 250], [120, 30], [180, 150], [200, 446], [168, 42], [200, 200], [160, 600], [120, 90], [125, 125], [240, 133], [120, 60], [1, 1], [120, 240], [220, 90], [216, 36], [250, 250], [168, 28], [234, 60], [120, 600], [300, 600], [88, 31], [300, 100]], sideAdElementId).addService(googletag.pubads());
+            }
+        }
+
+        // Define bottom ad
+        googletag.defineSlot('/23075930536/post-bottom', ['fluid'], 'gam-ad-bottom').addService(googletag.pubads());
+
+        // Enable lazy loading with default settings.
+        googletag.pubads().enableLazyLoad();
+
+        googletag.pubads().addEventListener("slotRequested", (event) => {
+            console.log(`Slot ${event.slot.getSlotElementId()} fetched`);
+        });
+
+        googletag.pubads().addEventListener("slotOnload", (event) => {
+            const elementId = event.slot.getSlotElementId();
+            prepareAdSlot(elementId);
+            console.log(`Slot ${event.slot.getSlotElementId()} rendered`);
+        });
+
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
+
+        // Trigger lazy loading
+        googletag.display('gam-ad-bottom');
+
+    });
+});
+</script>
+
+        
+    
+
+
+        
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+
+        
+        
+        
+        
+    
+        
+    
+        
+    
+
+
+        
+        
+        
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <meta name="description" content="By Chloe Tucker This article explains the Open Systems Interconnection (OSI) model and the 7 layers of networking, in plain English. The OSI model is a conceptual framework that is used to describe how a network functions. In plain English, the OSI m...">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The OSI Model – The 7 Layers of Networking Explained in Plain English">
+    
+        <meta property="og:description" content="By Chloe Tucker This article explains the Open Systems Interconnection (OSI) model and the 7 layers of networking, in plain English. The OSI model is a conceptual framework that is used to describe how a network functions. In plain English, the OSI m...">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2020/12/network-3537401_1920.jpg">
+    <meta property="article:published_time" content="2020-12-21T16:38:58.000Z">
+    <meta property="article:modified_time" content="2020-12-21T16:38:58.000Z">
+    
+        <meta property="article:tag" content="computer network">
+    
+        <meta property="article:tag" content="computer networking">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The OSI Model – The 7 Layers of Networking Explained in Plain English">
+    
+        <meta name="twitter:description" content="By Chloe Tucker This article explains the Open Systems Interconnection (OSI) model and the 7 layers of networking, in plain English. The OSI model is a conceptual framework that is used to describe how a network functions. In plain English, the OSI m...">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2020/12/network-3537401_1920.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="freeCodeCamp">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="computer network, computer networking">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@freecodecamp">
+    
+
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.freecodecamp.org/news/content/images/2020/12/network-3537401_1920.jpg",
+		"width": 600,
+		"height": 400
+	},
+	"url": "https://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2020-12-21T16:38:58.000Z",
+	"dateModified": "2020-12-21T16:38:58.000Z",
+	"keywords": "computer network, computer networking",
+	"description": "By Chloe Tucker\nThis article explains the Open Systems Interconnection (OSI) model and the 7 layers of networking, in plain English.\nThe OSI model is a conceptual framework that is used to describe how a network functions. In plain English, the OSI m...",
+	"headline": "The OSI Model – The 7 Layers of Networking Explained in Plain English",
+	"author": {
+		"@type": "Person",
+		"name": "freeCodeCamp",
+		"url": "https://www.freecodecamp.org/news/author/freeCodeCamp/",
+		"sameAs": [
+			"https://www.freecodecamp.org",
+			"https://x.com/freecodecamp"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1712072540742/C7c8AOPN6.png",
+			"width": 600,
+			"height": 600
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        
+        
+
+        
+  <meta name="x-fcc-source" data-test-label="x-fcc-source" content="Hashnode">
+
+    <meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9nrunKdU5m96PSN1XsSGr3qOP0lvPFUB2AiAylCDlN5DTl17uDFkpQuHj1AFtgWLxpLaiBZuhrtb2WOu7ofHwEAAACKeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A93bovR+QVXNx2/38qDbmeYYf1wdte9EO37K9eMq3r+541qo0byhYU899BhPB7Cv9QqD7wIbR1B6OAc9kEfYCA4AAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A1S5fojrAunSDrFbD8OfGmFHdRFZymSM/1ss3G+NEttCLfHkXvlcF6LGLH8Mo5PakLO1sCASXU1/gQf6XGuTBgwAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXRhZ3NlcnZpY2VzLmNvbTo0NDMiLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElNdWx0aW1vZGFsSW5wdXQiLCJleHBpcnkiOjE3NzQzMTA0MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/f(1).txt" async="" crossorigin="anonymous"></script><link href="https://securepubads.g.doubleclick.net/pagead/managed/dict/m202511110101/gpt" rel="compression-dictionary"><script async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/23075930536"></script><script async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/AGSKWxUn0ABD-ytqgH6LQ7-2L3cV-W55JaihtWoB66wjWkA6DmObtIJv4CADZc_G5esd"></script><script esp-signal="true" src="https://cdn-ima.33across.com/ob.js"></script><script esp-signal="true" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/encrypted-tag-g.js.download"></script><script esp-signal="true" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/publishertag.ids.js.download"></script><script esp-signal="true" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/sync.min.js.download"></script><script async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/AGSKWxWutos-sF2Dzqerpx-81icWNk0foqHKF25daCXodkYC9Stja369Ww66iqiY_PA3"></script><meta http-equiv="origin-trial" content="AxjhRadLCARYRJawRjMjq4U8V8okQvSnrBIJWdMajuEkN3/DfVAcLcFhMVrUWnOXagwlI8dQD84FwJDGj9ohqAYAAABveyJvcmlnaW4iOiJodHRwczovL2dvb2dsZWFkc2VydmljZXMuY29tOjQ0MyIsImZlYXR1cmUiOiJGZXRjaExhdGVyQVBJIiwiZXhwaXJ5IjoxNzI1NDA3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/AGSKWxWgZFd0VKd_loF74oT8H6_S4fjbtqj_22JNXtk1134fBPlAxoSnW2vYPlpBumJA"></script></head>
+
+    
+        <body class="home-template">
+    
+
+    
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    
+
+        <div class="site-wrapper">
+            <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        
+<form id="search-form" data-test-label="search-bar">
+    <div role="search" class="searchbox__wrapper">
+        <label class="fcc_sr_only" for="search-input">
+            Search
+        </label>
+        <input type="search" placeholder="
+    Search our news articles, tutorials, and books
+" id="search-input" class="aa-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style=""><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+        <button type="submit" class="ais-SearchBox-submit">
+            <svg class="ais-SearchBox-submitIcon" xmlns="https://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+    <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+</svg>
+
+            <span class="fcc_sr_only">Submit your search query</span>
+        </button>
+        <div id="dropdown-container"><span class="algolia-autocomplete" style="position: absolute; z-index: 100; display: none; direction: ltr;"><span class="aa-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="display: block; left: 0px; right: auto;"><div class="aa-dataset-1"></div></span></span></div>
+    </div>
+</form>
+
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news/" data-test-label="site-nav-logo"><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/fcc_primary.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <a class="nav-forum" id="nav-forum" rel="noopener noreferrer" href="https://forum.freecodecamp.org/" target="_blank" data-test-label="forum-button">Forum</a>
+            <a class="toggle-button-nav" id="nav-donate" rel="noopener noreferrer" href="https://www.freecodecamp.org/donate/" target="_blank" data-test-label="donate-button">Donate</a>
+        </div>
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank" href="https://www.freecodecamp.org/" text-variation="default">
+    <p id="banner-text">Learn to code — <span>free 3,000-hour curriculum</span></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");if(isAuthenticated){t.innerHTML=isDonor?"Thank you for supporting freeCodeCamp through <span>your donations</span>.":"Support our charity and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href=isDonor?"https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/":"https://www.freecodecamp.org/donate";const o=isDonor?"donor":"authenticated";e.setAttribute("text-variation",o)}else t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default")});</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer">
+        <div class="inner ad-layout">
+            <article class="post-full post">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" data-test-label="post-full-meta-date" datetime="2020-12-21T16:38:58.000Z">
+                            December 21, 2020
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a dir="ltr" href="https://www.freecodecamp.org/news/tag/computer-network/">
+                                #computer network
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title" data-test-label="post-full-title">The OSI Model – The 7 Layers of Networking Explained in Plain English</h1>
+                </header>
+                
+                <figure class="post-full-image">
+                    
+    <picture>
+      <source media="(max-width: 700px)" sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+      <source media="(min-width: 701px)" sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px" srcset="https://www.freecodecamp.org/news/content/images/size/w300/2020/12/network-3537401_1920.jpg 300w, https://www.freecodecamp.org/news/content/images/size/w600/2020/12/network-3537401_1920.jpg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2020/12/network-3537401_1920.jpg 1000w, https://www.freecodecamp.org/news/content/images/size/w2000/2020/12/network-3537401_1920.jpg 2000w">
+      <img onerror="this.style.display=&#39;none&#39;" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/network-3537401_1920.jpg" alt="The OSI Model – The 7 Layers of Networking Explained in Plain English" ,="" width="600" height="400" data-test-label="feature-image">
+    </picture>
+  
+                </figure>
+                <section class="post-full-content">
+                    <div class="post-and-sidebar">
+                        <section class="post-content " data-test-label="post-content">
+                            
+<p>By Chloe Tucker</p>
+<p>This article explains the Open Systems Interconnection (OSI) model and the 7 layers of networking, in plain English.</p>
+<p>The OSI model is a conceptual framework that is used to describe how a network functions. In plain English, the OSI model helped standardize the way computer systems send information to each other.</p>
+<p>Learning networking is a bit like learning a language - there are lots of standards and then some exceptions. Therefore, it’s important to really understand that the OSI model is not a set of rules. It is a tool for understanding how networks function. </p>
+<p>Once you learn the OSI model, you will be able to further understand and appreciate this glorious entity we call the Internet, as well as be able to troubleshoot networking issues with greater fluency and ease.</p>
+<p>All hail the Internet!</p>
+<h2 id="heading-prerequisites">Prerequisites</h2>
+<p>You don’t need any prior programming or networking experience to understand this article. However, you will need:</p>
+<ul>
+<li>Basic familiarity with common networking terms (explained below)</li>
+<li>A curiosity about how things work :)</li>
+</ul>
+<h2 id="heading-learning-objectives">Learning Objectives</h2>
+<p>Over the course of this article, you will learn:</p>
+<ol>
+<li>What the OSI model is</li>
+<li>The purpose of each of the 7 layers</li>
+<li>The problems that can happen at each of the 7 layers</li>
+<li>The difference between TCP/IP model and the OSI model</li>
+</ol>
+<h2 id="heading-common-networking-terms">Common Networking Terms</h2>
+<p>Here are some common networking terms that you should be familiar with to get the most out of this article. I’ll use these terms when I talk about OSI layers next.</p>
+<h3 id="heading-nodes">Nodes</h3>
+<p>A node is a physical electronic device hooked up to a network, for example a computer, printer, router, and so on. If set up properly, a node is capable of sending and/or receiving information over a network. </p>
+<p>Nodes may be set up adjacent to one other, wherein Node A can connect directly to Node B, or there may be an intermediate node, like a switch or a router, set up between Node A and Node B. </p>
+<p>Typically, routers connect networks to the Internet and switches operate within a network to facilitate intra-network communication. <a target="_blank" href="https://www.themillergroup.com/differences-hubs-switches-routers/">Learn more about hub vs. switch vs. router.</a></p>
+<p>Here's an example:</p>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/1-Router-Image.jpeg" alt="Image" width="600" height="400" loading="lazy">
+<em><a target="_blank" href="https://www.oreilly.com/library/view/the-illustrated-network/9780128110287/xhtml/chp001.xhtml">Source</a></em></p>
+<p><em>For the nitpicky among us (yep, I see you), <strong>host</strong> is another term that you will encounter in networking. I will define a host as a type of node that requires an IP address. All hosts are nodes, but not all nodes are hosts. Please Tweet angrily at me if you disagree.</em></p>
+<h3 id="heading-links">Links</h3>
+<p>Links connect nodes on a network. Links can be wired, like Ethernet, or cable-free, like WiFi. </p>
+<p>Links to can either be point-to-point, where Node A is connected to Node B, or multipoint, where Node A is connected to Node B and Node C. </p>
+<p>When we’re talking about information being transmitted, this may also be described as a one-to-one vs. a one-to-many relationship.</p>
+<h3 id="heading-protocol">Protocol</h3>
+<p>A protocol is a mutually agreed upon set of rules that allows two nodes on a network to exchange data. </p>
+<blockquote>
+<p>“A protocol defines the rules governing the syntax (what can be communicated), semantics (how it can be communicated), and synchronization (when and at what speed it can be communicated) of the communications procedure. Protocols can be implemented on hardware, software, or a combination of both. Protocols can be created by anyone, but the most widely adopted protocols are based on standards.” - The Illustrated Network. </p>
+</blockquote>
+<p>Both wired and cable-free links can have protocols.</p>
+<p>While anyone can create a protocol, the most widely adopted protocols are often based on standards published by Internet organizations such as the Internet Engineering Task Force (IETF).</p>
+<h3 id="heading-networks">Networks</h3>
+<p>A network is a general term for a group of computers, printers, or any other device that wants to share data. </p>
+<p>Network types include LAN, HAN, CAN, MAN, WAN, BAN, or VPN. Think I’m just randomly rhyming things with the word <em>can</em>? I <em>can</em>’t say I am - these are all real network types. <a target="_blank" href="https://www.c1c.net/blog/network-101/">Learn more here</a>.</p>
+<h3 id="heading-topology">Topology</h3>
+<p>Topology describes how nodes and links fit together in a network configuration, often depicted in a diagram. Here are some common network topology types:</p>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/2-Network-Topology-Types.png" alt="What is Network Topology? Best Guides to Types &amp; Diagrams - DNSstuff" width="600" height="400" loading="lazy">
+<em>[learn more about network topologies here](https://www.dnsstuff.com/what-is-network-topology"&gt;Source + &lt;a href="https://www.geeksforgeeks.org/types-of-network-topology/)</em></p>
+<p><em>A network consists of nodes, links between nodes, and protocols that govern data transmission between nodes.</em></p>
+<p>At whatever scale and complexity networks get to, you will understand what’s happening in all computer networks by learning the OSI model and 7 layers of networking.</p>
+<h1 id="heading-what-is-the-osi-model">What is the OSI Model?</h1>
+<p>The OSI model consists of 7 layers of networking.</p>
+<p>First, what’s a layer?</p>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/3-Dragon-Lair.jpeg" alt="Cave, Dragon&#39;s Lair, mountains" width="600" height="400" loading="lazy">
+<em><a target="_blank" href="https://pixabay.com/photos/cave-dragon-cave-mountains-1766835/">Source</a></em></p>
+<p>Ooo, lair.</p>
+<p>No, a layer - not a <em>lair</em>. Here there are no dragons.</p>
+<p><em>A layer is a way of categorizing and grouping functionality and behavior on and of a network.</em></p>
+<p>In the OSI model, layers are organized from the most tangible and most physical, to less tangible and less physical but closer to the end user.</p>
+<p>Each layer <em>abstracts</em> lower level functionality away until by the time you get to the highest layer. All the details and inner workings of all the other layers are hidden from the end user.</p>
+<p>How to remember all the names of the layers? Easy.</p>
+<ul>
+<li><strong>Please</strong> | Physical Layer</li>
+<li><strong>Do</strong> | Data Link Layer</li>
+<li><strong>Not</strong> | Network Layer</li>
+<li><strong>Tell</strong> (the) | Transport Layer</li>
+<li><strong>Secret</strong> | Session Layer</li>
+<li><strong>Password</strong> (to) | Presentation Layer</li>
+<li><strong>Anyone</strong> | Application Layer</li>
+</ul>
+<p><em>Keep in mind that while certain technologies, like protocols, may logically “belong to” one layer more than another, not all technologies fit neatly into a single layer in the OSI model. For example, Ethernet, 802.11 (Wifi) and the Address Resolution Protocol (ARP) procedure operate on &gt;1 layer.</em></p>
+<p>The OSI is a model and a tool, not a set of rules.</p>
+<h2 id="heading-osi-layer-1">OSI Layer 1</h2>
+<p>Layer 1 is the <strong>physical layer</strong>. There’s a lot of technology in Layer 1 - everything from physical network devices, cabling, to how the cables hook up to the devices. Plus if we don’t need cables, what the signal type and transmission methods are (for example, wireless broadband).</p>
+<p>Instead of listing every type of technology in Layer 1, I’ve created broader categories for these technologies. I encourage readers to learn more about each of these categories:</p>
+<ul>
+<li><strong>Nodes (devices) and networking hardware components.</strong> Devices include hubs, repeaters, routers, computers, printers, and so on. Hardware components that live inside of these devices include antennas, amplifiers, Network Interface Cards (NICs), and more.</li>
+<li><strong>Device interface mechanics.</strong> How and where does a cable connect to a device (cable connector and device socket)? What is the size and shape of the connector, and how many pins does it have? What dictates when a pin is active or inactive?</li>
+<li><strong>Functional and procedural logic.</strong> What is the function of each pin in the connector - send or receive? What procedural logic dictates the sequence of events so a node can start to communicate with another node on Layer 2?</li>
+<li><strong>Cabling protocols and specifications.</strong> Ethernet (CAT), USB, <a target="_blank" href="https://www.centurylink.com/home/help/internet/what-is-DSL.html">Digital Subscriber Line (DSL)</a>, and more. Specifications include maximum cable length, modulation techniques, radio specifications, line coding, and bits synchronization (more on that below).</li>
+<li><strong>Cable types.</strong> Options include shielded or unshielded twisted pair, untwisted pair, coaxial and so on. <a target="_blank" href="https://www.computernetworkingnotes.com/networking-tutorials/network-cable-types-and-specifications.html">Learn more about cable types here</a>.</li>
+<li><strong>Signal type.</strong> Baseband is a single bit stream at a time, like a railway track - one-way only. Broadband consists of multiple bit streams at the same time, like a bi-directional highway.</li>
+<li><strong>Signal transmission method (may be wired or cable-free).</strong> Options include electrical (Ethernet), light (optical networks, fiber optics), radio waves (802.11 WiFi, a/b/g/n/ac/ax variants or Bluetooth). If cable-free, then also consider frequency: 2.5 GHz vs. 5 GHz. If it’s cabled, consider voltage. If cabled and Ethernet, also consider networking standards like 100BASE-T and related standards.</li>
+</ul>
+<p>The data unit on Layer 1 is the bit.</p>
+<p>A bit the smallest unit of transmittable digital information. Bits are binary, so either a 0 or a 1. Bytes, consisting of 8 bits, are used to represent single characters, like a letter, numeral, or symbol. </p>
+<p>Bits are sent to and from hardware devices in accordance with the supported data rate (transmission rate, in number of bits per second or millisecond) and are synchronized so the number of bits sent and received per unit of time remains consistent (this is called bit synchronization). The way bits are transmitted depends on the signal transmission method.</p>
+<p>Nodes can send, receive, or send and receive bits. If they can only do one, then the node uses a simplex mode. If they can do both, then the node uses a duplex mode. If a node can send and receive at the same time, it’s full-duplex – if not, it’s just half-duplex. </p>
+<p>The original Ethernet was half-duplex. Full-duplex Ethernet is an option now, given the right equipment.</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-1-problems">How to Troubleshoot OSI Layer 1 Problems</h3>
+<p>Here are some Layer 1 problems to watch out for:</p>
+<ul>
+<li>Defunct cables, for example damaged wires or broken connectors</li>
+<li>Broken hardware network devices, for example damaged circuits</li>
+<li>Stuff being unplugged (...we’ve all been there)</li>
+</ul>
+<p>If there are issues in Layer 1, anything beyond Layer 1 will not function properly.</p>
+<h3 id="heading-tldr">TL;DR</h3>
+<p><em>Layer 1 contains the infrastructure that makes communication on networks possible.</em> </p>
+<p><em>It defines the electrical, mechanical, procedural, and functional specifications for activating, maintaining, and deactivating physical links between network devices. -</em> <a target="_blank" href="https://learning.oreilly.com/videos/wireshark-for-packet/9781839212352/9781839212352-video3_11">Source</a></p>
+<p>Fun fact: deep-sea communications cables transmit data around the world. This map will blow your mind: <a target="_blank" href="https://www.submarinecablemap.com/">https://www.submarinecablemap.com/</a></p>
+<p>And because you made it this far, here’s a koala:</p>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/4-Koala.jpeg" alt="Closeup of a Koala" width="600" height="400" loading="lazy">
+<em><a target="_blank" href="https://pixabay.com/photos/koala-nature-animals-legs-630117/">Source</a></em></p>
+<h2 id="heading-osi-layer-2">OSI Layer 2</h2>
+<p>Layer 2 is the <strong>data link layer</strong>. Layer 2 defines how data is formatted for transmission, how much data can flow between nodes, for how long, and what to do when errors are detected in this flow.</p>
+<p>In more official tech terms:</p>
+<ul>
+<li><strong>Line discipline.</strong> Who should talk for how long? How long should nodes be able to transit information for?</li>
+<li><strong>Flow control.</strong> How much data should be transmitted?</li>
+<li><strong>Error control</strong> <strong>- detection and correction</strong>. All data transmission methods have potential for errors, from electrical spikes to dirty connectors. Once Layer 2 technologies tell network administrators about an issue on Layer 2 or Layer 1, the system administrator can correct for those errors on subsequent layers. Layer 2 is mostly concerned with error detection, not error correction. (<a target="_blank" href="https://learning.oreilly.com/videos/wireshark-for-packet/9781839212352/9781839212352-video3_10">Source</a>)</li>
+</ul>
+<p>There are two distinct sublayers within Layer 2:</p>
+<ul>
+<li><strong>Media Access Control (MAC):</strong> the MAC sublayer handles the assignment of a hardware identification number, called a MAC address, that uniquely identifies each device on a network. No two devices should have the same MAC address. The MAC address is assigned at the point of manufacturing. It is automatically recognized by most networks. MAC addresses live on Network Interface Cards (NICs). Switches keep track of all MAC addresses on a network. Learn more about MAC addresses on <a target="_blank" href="https://www.pcmag.com/encyclopedia/term/mac-address">PC Mag</a> and <a target="_blank" href="https://people.richland.edu/dkirby/141macaddress.htm">in this article</a>. <a target="_blank" href="https://www.networkworld.com/article/3584876/what-is-a-network-switch-and-how-does-it-work.html">Learn more about network switches here</a>.</li>
+<li><strong>Logical Link Control (LLC):</strong> the LLC sublayer handles framing addressing and flow control. The speed depends on the link between nodes, for example Ethernet or Wifi.</li>
+</ul>
+<p>The data unit on Layer 2 is a <em>frame</em>.</p>
+<p>Each frame contains a frame header, body, and a frame trailer:</p>
+<ul>
+<li>Header: typically includes MAC addresses for the source and destination nodes.</li>
+<li>Body: consists of the bits being transmitted.</li>
+<li>Trailer: includes error detection information. When errors are detected, and depending on the implementation or configuration of a network or protocol, frames may be discarded or the error may be reported up to higher layers for further error correction. Examples of error detection mechanisms: Cyclic Redundancy Check (CRC) and Frame Check Sequence (FCS). <a target="_blank" href="http://www.msc.uky.edu/ken/cs471/notes/chap5.htm">Learn more about error detection techniques here</a>.</li>
+</ul>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/5-Frame-Example.jpeg" alt="Example of frames, the network layer, and the physical layer" width="600" height="400" loading="lazy">
+<em><a target="_blank" href="https://learning.oreilly.com/library/view/the-illustrated-network/9780128110287/xhtml/chp001.xhtml">Source</a></em></p>
+<p>Typically there is a maximum frame size limit, called an Maximum Transmission Unit, MTU. Jumbo frames exceed the standard MTU, <a target="_blank" href="https://kb.netgear.com/25091/Guidance-on-the-use-of-jumbo-frames">learn more about jumbo frames here</a>.</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-2-problems">How to Troubleshoot OSI Layer 2 Problems</h3>
+<p>Here are some Layer 2 problems to watch out for:</p>
+<ul>
+<li>All the problems that can occur on Layer 1</li>
+<li>Unsuccessful connections (sessions) between two nodes</li>
+<li>Sessions that are successfully established but intermittently fail</li>
+<li>Frame collisions</li>
+</ul>
+<h3 id="heading-tldr-1">TL;DR</h3>
+<p><em>The Data Link Layer allows nodes to communicate with each other within a local area network. The foundations of line discipline, flow control, and error control are established in this layer.</em></p>
+<h2 id="heading-osi-layer-3">OSI Layer 3</h2>
+<p>Layer 3 is the <strong>network layer</strong>. This is where we send information <em>between and across</em> networks through the use of routers. Instead of just node-to-node communication, we can now do network-to-network communication.</p>
+<p>Routers are the workhorse of Layer 3 - we couldn’t have Layer 3 without them. They move data packets across multiple networks. </p>
+<p>Not only do they connect to Internet Service Providers (ISPs) to provide access to the Internet, they also keep track of what’s on its network (remember that switches keep track of all MAC addresses on a network), what other networks it’s connected to, and the different paths for routing data packets across these networks. </p>
+<p>Routers store all of this addressing and routing information in routing tables.</p>
+<p>Here’s a simple example of a routing table:</p>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/6-Routing-Table.png" alt="A routing table showing the destination, subnet mask, and interface" width="600" height="400" loading="lazy">
+<em><a target="_blank" href="https://www.geeksforgeeks.org/routing-tables-in-computer-network/">Source + learn more about routing tables here</a></em></p>
+<p>The data unit on Layer 3 is the <em>data packet</em>. Typically, each data packet contains a frame <strong>plus</strong> an IP address information wrapper. In other words, frames are encapsulated by Layer 3 addressing information. </p>
+<p>The data being transmitted in a packet is also sometimes called the <em>payload</em>. While each packet has everything it needs to get to its destination, whether or not it makes it there is another story. </p>
+<p>Layer 3 transmissions are connectionless, or best effort - they don't do anything but send the traffic where it’s supposed to go. More on data transport protocols on Layer 4.</p>
+<p>Once a node is connected to the Internet, it is assigned an Internet Protocol (IP) address, which looks either like 172.16. 254.1 (IPv4 address convention) or like 2001:0db8:85a3:0000:0000:8a2e:0370:7334 (IPv6 address convention). Routers use IP addresses in their routing tables.</p>
+<p>IP addresses are associated with the physical node’s MAC address via the Address Resolution Protocol (ARP), which resolves MAC addresses with the node’s corresponding IP address. </p>
+<p>ARP is conventionally considered part of Layer 2, but since IP addresses don’t exist until Layer 3, it’s also part of Layer 3.</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-3-problems">How to Troubleshoot OSI Layer 3 Problems</h3>
+<p>Here are some Layer 3 problems to watch out for:</p>
+<ul>
+<li>All the problems that can crop up on previous layers :)</li>
+<li>Faulty or non-functional router or other node</li>
+<li>IP address is incorrectly configured</li>
+</ul>
+<p>Many answers to Layer 3 questions will require the use of command-line tools like <em>ping</em>, <em>trace</em>, <em>show ip route</em>, or <em>show ip protocols</em>. <a target="_blank" href="https://www.pearsonitcertification.com/articles/article.aspx?p=2873377">Learn more about troubleshooting on layer 1-3 here</a>.</p>
+<h3 id="heading-tldr-2">TL;DR</h3>
+<p><em>The Network Layer allows nodes to connect to the Internet and send information across different networks.</em></p>
+<h2 id="heading-osi-layer-4">OSI Layer 4</h2>
+<p>Layer 4 is the <strong>transport layer</strong>. This where we dive into the nitty gritty specifics of the connection between two nodes and how information is transmitted between them. It builds on the functions of Layer 2 - line discipline, flow control, and error control.</p>
+<p>This layer is also responsible for data packet segmentation, or how data packets are broken up and sent over the network. </p>
+<p>Unlike the previous layer, Layer 4 also has an understanding of the whole message, not just the contents of each individual data packet. With this understanding, Layer 4 is able to manage network congestion by not sending all the packets at once.</p>
+<p>The data units of Layer 4 go by a few names. For TCP, the data unit is a packet. For UDP, a packet is referred to as a datagram. I’ll just use the term data packet here for the sake of simplicity.</p>
+<p>Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) are two of the most well-known protocols in Layer 4.</p>
+<p>TCP, a connection-oriented protocol, prioritizes data quality over speed. </p>
+<p>TCP explicitly establishes a connection with the destination node and requires a handshake between the source and destination nodes when data is transmitted. The handshake confirms that data was received. If the destination node does not receive all of the data, TCP will ask for a retry. </p>
+<p>TCP also ensures that packets are delivered or reassembled in the correct order. <a target="_blank" href="https://www.cloudflare.com/learning/ddos/glossary/tcp-ip/">Learn more about TCP here</a>.</p>
+<p>UDP, a connectionless protocol, prioritizes speed over data quality. UDP does not require a handshake, which is why it’s called connectionless. </p>
+<p>Because UDP doesn’t have to wait for this acknowledgement, it can send data at a faster rate, but not all of the data may be successfully transmitted and we’d never know. </p>
+<p>If information is split up into multiple datagrams, unless those datagrams contain a sequence number, UDP does not ensure that packets are reassembled in the correct order. <a target="_blank" href="https://www.cloudflare.com/learning/ddos/glossary/user-datagram-protocol-udp/">Learn more about UDP here</a>.</p>
+<p>TCP and UDP both send data to specific ports on a network device, which has an IP address. The combination of the IP address and the port number is called a socket.</p>
+<p><a target="_blank" href="https://www.dummies.com/programming/networking/cisco/network-basics-tcpudp-socket-and-port-overview/">Learn more about sockets here</a>.</p>
+<p><a target="_blank" href="https://www.pearsonitcertification.com/articles/article.aspx?p=2873377">Learn more about the differences and similarities between these two protocols here</a>.</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-4-problems">How to Troubleshoot OSI Layer 4 Problems</h3>
+<p>Here are some Layer 4 problems to watch out for:</p>
+<ul>
+<li>All the problems that can crop up on previous layers :)</li>
+<li>Blocked ports - check your Access Control Lists (ACL) &amp; firewalls</li>
+<li>Quality of Service (QoS) settings. QoS is a feature of routers/switches that can prioritize traffic, and they can really muck things up. <a target="_blank" href="https://www.pcworld.com/article/2689995/quality-of-service-explained-how-routers-with-strong-qos-make-better-home-networks.html">Learn more about QoS here</a>.</li>
+</ul>
+<h3 id="heading-tldr-3">TL;DR</h3>
+<p><em>The Transport Layer provides end-to-end transmission of a message by segmenting a message into multiple data packets; the layer supports connection-oriented and connectionless communication.</em></p>
+<h2 id="heading-osi-layer-5">OSI Layer 5</h2>
+<p>Layer 5 is the <strong>session layer</strong>. This layer establishes, maintains, and terminates sessions.</p>
+<p>A session is a mutually agreed upon connection that is established between two network applications. Not two nodes! Nope, we’ve moved on from nodes. They were <em>so</em> Layer 4. </p>
+<p>Just kidding, we still have nodes, but Layer 5 doesn’t need to retain the concept of a node because that’s been abstracted out (taken care of) by previous layers.</p>
+<p>So a session is a connection that is established between two specific end-user applications. There are two important concepts to consider here:</p>
+<ul>
+<li>Client and server model: the application requesting the information is called the client, and the application that has the requested information is called the server.</li>
+<li>Request and response model: while a session is being established and during a session, there is a constant back-and-forth of requests for information and responses containing that information or “hey, I don’t have what you’re requesting.”</li>
+</ul>
+<p>Sessions may be open for a very short amount of time or a long amount of time. They may fail sometimes, too. </p>
+<p>Depending on the protocol in question, various failure resolution processes may kick in. Depending on the applications/protocols/hardware in use, sessions may support simplex, half-duplex, or full-duplex modes.</p>
+<p>Examples of protocols on Layer 5 include Network Basic Input Output System (NetBIOS) and Remote Procedure Call Protocol (RPC), and many others. </p>
+<p>From here on out (layer 5 and up), networks are focused on ways of making connections to end-user applications and displaying data to the user.</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-5-problems">How to Troubleshoot OSI Layer 5 Problems</h3>
+<p>Here are some Layer 5 problems to watch out for:</p>
+<ul>
+<li>Servers are unavailable</li>
+<li>Servers are incorrectly configured, for example Apache or PHP configs</li>
+<li>Session failure - disconnect, timeout, and so on.</li>
+</ul>
+<h3 id="heading-tldr-4">TL;DR</h3>
+<p><em>The Session Layer initiates, maintains, and terminates connections between two end-user applications. It responds to requests from the presentation layer and issues requests to the transport layer.</em></p>
+<h2 id="heading-osi-layer-6">OSI Layer 6</h2>
+<p>Layer 6 is the <strong>presentation layer</strong>. This layer is responsible for data formatting, such as character encoding and conversions, and data encryption. </p>
+<p>The operating system that hosts the end-user application is typically involved in Layer 6 processes. This functionality is not always implemented in a network protocol.</p>
+<p>Layer 6 makes sure that end-user applications operating on Layer 7 can successfully consume data and, of course, eventually display it.</p>
+<p>There are three data formatting methods to be aware of:</p>
+<ul>
+<li>American Standard Code for Information Interchange (ASCII): this 7-bit encoding technique is the most widely used standard for character encoding. One superset is ISO-8859-1, which provides most of the characters necessary for languages spoken in Western Europe.</li>
+<li>Extended Binary-Coded Decimal Interchange Code (EBDCIC): designed by IBM for mainframe usage. This encoding is incompatible with other character encoding methods.</li>
+<li>Unicode: character encodings can be done with 32-, 16-, or 8-bit characters and attempts to accommodate every known, written alphabet.</li>
+</ul>
+<p>Learn more about character encoding methods <a target="_blank" href="https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/">in this article</a>, <a target="_blank" href="https://www.smashingmagazine.com/2012/06/all-about-unicode-utf8-character-sets/">and also here</a>.</p>
+<p>Encryption: SSL or TLS encryption protocols live on Layer 6. These encryption protocols help ensure that transmitted data is less vulnerable to malicious actors by providing authentication and data encryption for nodes operating on a network. TLS is the successor to SSL.</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-6-problems">How to Troubleshoot OSI Layer 6 Problems</h3>
+<p>Here are some Layer 6 problems to watch out for:</p>
+<ul>
+<li>Non-existent or corrupted drivers</li>
+<li>Incorrect OS user access level</li>
+</ul>
+<h3 id="heading-tldr-5">TL;DR</h3>
+<p><em>The Presentation Layer formats and encrypts data.</em></p>
+<h2 id="heading-osi-layer-7">OSI Layer 7</h2>
+<p>Layer 7 is the <strong>application layer</strong>.</p>
+<p>True to its name, this is the layer that is ultimately responsible for supporting services used by end-user applications. Applications include software programs that are installed on the operating system, like Internet browsers (for example, Firefox) or word processing programs (for example, Microsoft Word). </p>
+<p>Applications can perform specialized network functions under the hood and require specialized services that fall under the umbrella of Layer 7.</p>
+<p>Electronic mail programs, for example, are specifically created to run over a network and utilize networking functionality, such as email protocols, which fall under Layer 7. </p>
+<p>Applications will also control end-user interaction, such as security checks (for example, MFA), identification of two participants, initiation of an exchange of information, and so on.</p>
+<p>Protocols that operate on this level include File Transfer Protocol (FTP), Secure Shell (SSH), Simple Mail Transfer Protocol (SMTP), Internet Message Access Protocol (IMAP), Domain Name Service (DNS), and Hypertext Transfer Protocol (HTTP). </p>
+<p>While each of these protocols serve different functions and operate differently, on a high level they all facilitate the communication of information. (<a target="_blank" href="https://jaimelightfoot.com/blog/osi-model/">Source</a>)</p>
+<h3 id="heading-how-to-troubleshoot-osi-layer-7-problems">How to Troubleshoot OSI Layer 7 Problems</h3>
+<p>Here are some Layer 7 problems to watch out for:</p>
+<ul>
+<li>All issues on previous layers</li>
+<li>Incorrectly configured software applications</li>
+<li>User error (... we’ve all been there)</li>
+</ul>
+<h3 id="heading-tldr-6">TL;DR</h3>
+<p><em>The Application Layer owns the services and functions that end-user applications need to work. It does not include the applications themselves.</em></p>
+<h1 id="heading-conclusion"><strong>Conclusion</strong></h1>
+<p>Our Layer 1 koala is all grown up.</p>
+<p><img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/6-Koala-Makeup.jpeg" alt="Koala with Photoshopped makeup" width="600" height="400" loading="lazy"></p>
+<p>Learning check - can you apply makeup to a koala?</p>
+<p>Don’t have a koala?</p>
+<p>Well - answer these questions instead. It’s the next best thing, I promise.</p>
+<ul>
+<li>What is the OSI model?</li>
+<li>What are each of the layers?</li>
+<li>How could I use this information to troubleshoot networking issues?</li>
+</ul>
+<p>Congratulations - you’ve taken one step farther to understanding the glorious entity we call the Internet.</p>
+<h2 id="heading-learning-resources"><strong>Learning Resources</strong></h2>
+<p>Many, <em>very</em> smart people have written entire books about the OSI model or entire books about specific layers. I encourage readers to check out any O’Reilly-published books about the subject or about network engineering in general. </p>
+<p>Here are some resources I used when writing this article:</p>
+<ul>
+<li>The Illustrated Network, 2nd Edition</li>
+<li>Protocol Data Unit (PDU): <a target="_blank" href="https://www.geeksforgeeks.org/difference-between-segments-packets-and-frames/">https://www.geeksforgeeks.org/difference-between-segments-packets-and-frames/</a></li>
+<li>Troubleshooting Along the OSI Model: <a target="_blank" href="https://www.pearsonitcertification.com/articles/article.aspx?p=1730891">https://www.pearsonitcertification.com/articles/article.aspx?p=1730891</a></li>
+<li>The OSI Model Demystified: <a target="_blank" href="https://www.youtube.com/watch?v=HEEnLZV2wGI">https://www.youtube.com/watch?v=HEEnLZV2wGI</a></li>
+<li>OSI Model for Dummies: <a target="_blank" href="https://www.dummies.com/programming/networking/layers-in-the-osi-model-of-a-computer-network/">https://www.dummies.com/programming/networking/layers-in-the-osi-model-of-a-computer-network/</a></li>
+</ul>
+<h3 id="heading-about-me">About Me</h3>
+<p>Chloe Tucker is an artist and computer science enthusiast based in Portland, Oregon. As a former educator, she's continuously searching for the intersection of learning and teaching, or technology and art. Reach out to her on Twitter <a target="_blank" href="https://twitter.com/_chloetucker">@_chloetucker</a> and check out her website at <a target="_blank" href="https://chloe.dev/">chloe.dev</a>.</p>
+
+
+                        </section>
+                        
+                            <div class="sidebar">
+                                
+                                    
+                                    <script>var localizedAdText = "ADVERTISEMENT";</script>
+                                
+                            <div class="ad-wrapper"><div class="ad-text" style="visibility: inherit;">ADVERTISEMENT</div><div id="side-gam-ad-0" class="side-bar-ad-slot" data-google-query-id="CLegn-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/23075930536/post-side_0" name="google_ads_iframe_/23075930536/post-side_0" title="3rd party ad content" width="300" height="600" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" aria-label="Advertisement" tabindex="0" allow="private-state-token-redemption;attribution-reporting" data-load-complete="true" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/saved_resource.html"></iframe></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-1" class="side-bar-ad-slot" data-google-query-id="CKCOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_1__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-2" class="side-bar-ad-slot" data-google-query-id="CKGOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_2__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-3" class="side-bar-ad-slot" data-google-query-id="CKKOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_3__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-4" class="side-bar-ad-slot" data-google-query-id="CKOOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_4__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-5" class="side-bar-ad-slot" data-google-query-id="CKSOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_5__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-6" class="side-bar-ad-slot" data-google-query-id="CKWOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_6__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-7" class="side-bar-ad-slot" data-google-query-id="CKaOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_7__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-8" class="side-bar-ad-slot" data-google-query-id="CKeOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_8__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-9" class="side-bar-ad-slot" data-google-query-id="CKiOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_9__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-10" class="side-bar-ad-slot" data-google-query-id="CKmOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_10__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-11" class="side-bar-ad-slot" data-google-query-id="CKqOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_11__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-12" class="side-bar-ad-slot" data-google-query-id="CKuOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_12__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-13" class="side-bar-ad-slot" data-google-query-id="CKyOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_13__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-14" class="side-bar-ad-slot" data-google-query-id="CK2Om-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_14__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-15" class="side-bar-ad-slot" data-google-query-id="CK6Om-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_15__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-16" class="side-bar-ad-slot" data-google-query-id="CK-Om-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_16__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-17" class="side-bar-ad-slot" data-google-query-id="CLCOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_17__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-18" class="side-bar-ad-slot" data-google-query-id="CLGOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_18__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-19" class="side-bar-ad-slot" data-google-query-id="CLKOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_19__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-20" class="side-bar-ad-slot" data-google-query-id="CLOOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_20__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-21" class="side-bar-ad-slot" data-google-query-id="CLSOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_21__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-22" class="side-bar-ad-slot" data-google-query-id="CLWOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_22__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-23" class="side-bar-ad-slot" data-google-query-id="CLaOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_23__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-24" class="side-bar-ad-slot" data-google-query-id="CLeOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_24__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-25" class="side-bar-ad-slot" data-google-query-id="CLiOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_25__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-26" class="side-bar-ad-slot" data-google-query-id="CLmOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_26__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-27" class="side-bar-ad-slot" data-google-query-id="CLqOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_27__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-28" class="side-bar-ad-slot" data-google-query-id="CLuOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_28__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-29" class="side-bar-ad-slot" data-google-query-id="CLyOm-_eipEDFUjODQkdTWwObg"><div id="google_ads_iframe_/23075930536/post-side_29__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-30" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_30__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-31" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_31__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-32" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_32__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-33" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_33__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-34" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_34__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-35" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_35__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-36" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_36__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-37" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_37__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-38" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_38__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div><div class="ad-wrapper"><div class="ad-text">ADVERTISEMENT</div><div id="side-gam-ad-39" class="side-bar-ad-slot"><div id="google_ads_iframe_/23075930536/post-side_39__container__" style="border: 0pt none; width: 292px; height: 0px;"></div></div></div></div>
+                        
+                    </div>
+                    <hr>
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, thank the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button" onclick="window.open(
+    &#39;https://x.com/intent/post?text=Thank%20you%20%40freecodecamp%20for%20writing%20this%20helpful%20article.%0A%0AThe%20OSI%20Model%20%E2%80%93%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English%0A%0Ahttps://www.freecodecamp.org/news/osi-model-networking-layers-explained-in-plain-english/&#39;,
+    &#39;share-twitter&#39;,
+    &#39;width=550, height=235&#39;
+  ); return false;">Say Thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("tweet-btn"),e=window.location,n="The%20OSI%20Model%20%E2%80%93%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English".replace(/&#39;/g,"%27"),o="",i="@freecodecamp",r=Boolean("");let a;if(r&&(o||i)){const t={originalPostAuthor:"",currentPostAuthor:"freeCodeCamp"};a=encodeURIComponent(`Thank you ${o||t.originalPostAuthor} for writing this helpful article, and ${i||t.currentPostAuthor} for translating it.`)}else!r&&i&&(a=encodeURIComponent(`Thank you ${i} for writing this helpful article.`));const l=`window.open(\n    '${a?`https://x.com/intent/post?text=${a}%0A%0A${n}%0A%0A${e}`:`https://x.com/intent/post?text=${n}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",l)});</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn/" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad-bottom">
+                        
+                            
+
+<div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+<div style="display: block; height: auto" id="gam-ad-bottom">
+<div id="google_ads_iframe_/23075930536/post-bottom_0__container__" style="border: 0pt none;"></div></div>
+
+                        
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-desc-col">
+            <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charity organization (United States Federal Tax Identification Number: 82-0779546)</p>
+            <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.</p>
+            <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+            <p class="footer-donation" data-test-label="donate-text">
+                You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+            </p>
+        </div>
+        <div class="trending-guides" data-test-label="trending-guides">
+            <h2 id="trending-guides" class="col-header">Trending Books and Handbooks</h2>
+            <ul class="trending-guides-articles" aria-labelledby="trending-guides">
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/" rel="noopener noreferrer" target="_blank">REST APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-write-clean-code/" rel="noopener noreferrer" target="_blank">Clean Code
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/" rel="noopener noreferrer" target="_blank">TypeScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-javascript-for-beginners/" rel="noopener noreferrer" target="_blank">JavaScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-an-ai-chatbot-with-redis-python-and-gpt/" rel="noopener noreferrer" target="_blank">AI Chatbots
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/command-line-for-beginners/" rel="noopener noreferrer" target="_blank">Command Line
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/building-consuming-and-documenting-a-graphql-api/" rel="noopener noreferrer" target="_blank">GraphQL APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/complete-guide-to-css-transform-functions-and-properties/" rel="noopener noreferrer" target="_blank">CSS Transforms
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-scalable-access-control-for-your-web-app/" rel="noopener noreferrer" target="_blank">Access Control
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/rest-api-design-best-practices-build-a-rest-api/" rel="noopener noreferrer" target="_blank">REST API Design
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-php-handbook/" rel="noopener noreferrer" target="_blank">PHP
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-java-handbook/" rel="noopener noreferrer" target="_blank">Java
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-linux-for-beginners-book-basic-to-advanced/" rel="noopener noreferrer" target="_blank">Linux
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/react-for-beginners-handbook/" rel="noopener noreferrer" target="_blank">React
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/" rel="noopener noreferrer" target="_blank">CI/CD
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-docker-handbook/" rel="noopener noreferrer" target="_blank">Docker
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-golang-handbook/" rel="noopener noreferrer" target="_blank">Golang
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-python-handbook/" rel="noopener noreferrer" target="_blank">Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/get-started-with-nodejs/" rel="noopener noreferrer" target="_blank">Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-crud-operations-with-dotnet-core-handbook/" rel="noopener noreferrer" target="_blank">Todo APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-use-classes-in-javascript-handbook/" rel="noopener noreferrer" target="_blank">JavaScript Classes
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/" rel="noopener noreferrer" target="_blank">Front-End Libraries
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-express-handbook/" rel="noopener noreferrer" target="_blank">Express and Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Python Code Examples
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/clustering-in-python-a-machine-learning-handbook/" rel="noopener noreferrer" target="_blank">Clustering in Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/an-introduction-to-software-architecture-patterns/" rel="noopener noreferrer" target="_blank">Software Architecture
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/what-is-programming-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Programming Fundamentals
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-to-code-book/" rel="noopener noreferrer" target="_blank">Coding Career Preparation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/become-a-full-stack-developer-and-get-a-job/" rel="noopener noreferrer" target="_blank">Full-Stack Developer Guide
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-python-for-javascript-developers-handbook/" rel="noopener noreferrer" target="_blank">Python for JavaScript Devs
+                    </a>
+                </li>
+            </ul>
+            <div class="spacer" style="padding: 15px 0;"></div>
+            <div>
+                <h2 id="mobile-app" class="col-header">
+                    Mobile App
+                </h2>
+                <div class="min-h-[1px] px-[15px] md:w-2/3 md:ml-[16.6%]">
+                    <ul aria-labelledby="mobile-app" class="mobile-app-container">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/freecodecamp/id6446908151?itsct=apps_box_link&amp;itscg=30200" rel="noopener noreferrer" target="_blank">
+                                <img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/apple-store-badge.svg" lang="en" alt="Download on the App Store">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=org.freecodecamp" rel="noopener noreferrer" target="_blank">
+                                <img src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/google-play-badge.svg" lang="en" alt="Get it on Google Play">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h2 class="col-header" data-test-label="our-nonprofit">Our Charity</h2>
+        <div class="our-nonprofit">
+
+            <a href="https://hashnode.com/" rel="noopener noreferrer" target="_blank" data-test-label="powered-by">
+                Publication powered by Hashnode
+            </a>
+            <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                About
+            </a>
+            <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                Alumni Network
+            </a>
+            <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                Open Source
+            </a>
+            <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                Shop
+            </a>
+            <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                Support
+            </a>
+            <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                Sponsors
+            </a>
+            <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                Academic Honesty
+            </a>
+            <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                Code of Conduct
+            </a>
+            <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                Privacy Policy
+            </a>
+            <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                Terms of Service
+            </a>
+            <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                Copyright Policy
+            </a>
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+        
+        
+
+        
+        
+    <script defer="" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;bdb993c6dde44e178aabd9555e75e4f4&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/saved_resource(1).html"></iframe><iframe name="__tcfapiLocator" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/saved_resource(2).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/saved_resource(3).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/saved_resource(4).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/syncframe.html" width="0" height="0" frameborder="0" sandbox="allow-scripts allow-same-origin" aria-hidden="true" title="Criteo GUM iframe" style="border-width: 0px; margin: 0px; display: none;"></iframe><iframe src="The%20OSI%20Model%20–%20The%207%20Layers%20of%20Networking%20Explained%20in%20Plain%20English_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body></html>
