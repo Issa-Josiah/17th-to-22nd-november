@@ -3,4 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def produce(request):
-    return HttpResponse("PRRODUCE IS THE FEED OF THE FARMER.")
+    context = {'producer': 'Welcome Home'}
+    return render(request, '../../html/wednesday.html', context)
