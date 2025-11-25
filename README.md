@@ -89,5 +89,17 @@ Includes external references for deeper learning.
 - ![img_5.png](img_5.png)
 - DOWNLOADING DATAMARIA FOR THE DATABASE
 - ![img_4.png](img_4.png)
+- add templates in app
+- in templates inlude html file
+- in views return render(request, 'main.html')
+- ginger callibrasing. adding an external html file in th e template html
 
+    {% include 'html file'%}
+- {% extend.html%} to incoporate the html file format
+- {% block content%}  to add content
+  - {% end content%}     to close content
+- decoupling the app related templates
+- this is done by creating app subfolder  inside the templates directory in project
+- 
+- 
 
