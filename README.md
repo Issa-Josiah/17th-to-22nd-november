@@ -2,17 +2,6 @@
 everything that happened during this time
 Django Learning Project
 
-A beginner-friendly project to explore Django and backend web development concepts, including web architecture, MVC/MVT workflow, and server-client interaction.
-
-📂 Project Structure
-project/
-│
-├── index.html       # Main HTML page with explanations and resources
-├── styles.css       # CSS styling
-├── img.png          # Django workflow diagram
-├── img_1.png        # Project objectives diagram
-└── resources/       # Articles, videos, and reference files
-
 ⚡ Key Concepts
 Backend Architecture
 
@@ -37,41 +26,6 @@ Model: Database representation (ORM)
 View: Handles data processing
 
 Template: Renders user interface
-
-📚 Resources
-Articles
-
-OSI Model – The 7 Layers of Networking Explained
-
-Web Server Basics
-
-Transport Layer Security (TLS)
-
-Video
-
-Monday Lesson Video
- – Download to access the lesson
-
-🚀 How to Use
-
-Open index.html in your browser.
-
-Explore the content and diagrams on backend development and Django.
-
-Click the buttons for articles and external resources.
-
-Watch the video for a complete lesson.
-
-🛠 Technologies
-
-Languages: HTML, CSS
-
-Backend Concepts: Python (Django), PHP, Java, Kotlin
-
-Framework: Django
-
-🎯 Notes
-
 Educational project to understand backend workflows and Django MVT structure.
 
 Illustrates server-client interaction, templates, and database queries.
@@ -79,26 +33,61 @@ Illustrates server-client interaction, templates, and database queries.
 Includes external references for deeper learning.
 
 
-TUESDAY
--CREATE AN ENVIRONMENT PYTHON -M VENV ENV
--INSTALL DJANGI IN THE ENVIRONMENT PIP INSTALL DJANGO
--CREATE A PROJECT django-admin startproject projectlemma
-        -manage.py handles our running
-        -wsgi and asgi  deals with the web configuration
-        -__init__ tell program you are dealing with a python module
-        -settings is for configuration
-        -urls is the endpoint, checks the route
--CHECK THE FOLDER YOU ARE IN AND RUNSERVER OF MANAGE.PY
--create an application.ensure you are in the same directory as manage.py
--CREATE AN APP python manage.py startapp firstApp
--CREATE VIEWS 
--CREATE URLS
--go and add include and the path to the first path in projects urls
-lastly add the name to setting
--run server to see the update (python manage.py runserver)
+        TUESDAY
+- CREATE AN ENVIRONMENT PYTHON -M VENV ENV
+- INSTALL DJANGI IN THE ENVIRONMENT PIP INSTALL DJANGO
+- CREATE A PROJECT django-admin startproject projectlemma
+        - manage.py handles our running
+        - wsgi and asgi  deals with the web configuration
+        - __init__ tell program you are dealing with a python module
+        - settings is for configuration
+        - urls is the endpoint, checks the route
+- CHECK THE FOLDER YOU ARE IN AND RUNSERVER OF MANAGE.PY
+- create an application.ensure you are in the same directory as manage.py
+- CREATE AN APP python manage.py startapp firstApp
+- CREATE VIEWS 
+- CREATE URLS
+- go and add include and the path to the first path in projects urls
 
+- lastly add the name to setting
+- run server to see the update (python manage.py runserver)
 
+        WEDNESDAY
+- activate environment
+- install django
+- create django project
+- run project and confirm your directory
+- stops first url then the view
+- select inteprator
+- create an application
+- register the application of the project in the settings
+- put the path in the urls part
+- create the first paths
+- Next we gonna see about models. in vs code download sqlite viewer
+- create a schemer in models
+- in models we create the model
+            -class Produce(models.Model):  #name of the table
+    -name = models.CharField(max_length=200)  #string
+    -price = models.IntegerField()  #numbers
+- make migrations next (python manage.py makemigrations)
+![img.png](img.png)
+- do a migrate (python manage.py migrate)
+![img_1.png](img_1.png)
+### - removing file use rm -rf .git ###
 
+- create an admin by creating a super user(python manage.py createsuperuser)
+- ![img_2.png](img_2.png)
+- navigate to '/admin' endpoint
+- register our product to the admin (admin.site.register(models.Produce))
+- ![img_3.png](img_3.png)
 
+- display data on template
+- We will start this on thursday
+
+                    THURSDAY
+- A QUICK RECAP OF WEDNESDAY WHILE 
+- ![img_5.png](img_5.png)
+- DOWNLOADING DATAMARIA FOR THE DATABASE
+- ![img_4.png](img_4.png)
 
 

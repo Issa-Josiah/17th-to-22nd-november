@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/wednesday.css">
+        <meta name="keywords" content="Django processes">
+        <meta name="description" content="Streamline getting started, django admin panel, introduction to sq panel">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic Intro</title>
+    </head>
+    <body>
+    <h3> this is the image that you should always visualise when doing anything</h3>
+    <img src="img.png" alt="image of flow of web server">
+    <h1>WHAT WE WILL DISCUSS TODAY</h1>
+    <ol>
+        <li>getting started</li>
+        <li>django admin panel</li>
+        <li>introduction to sq panel</li>
+    </ol>
+
+    <h2>start create app like tuesday to proceed</h2>
+    <h1>
+        models
+    </h1>
+    <p> You noticed in the warnings of app not working unless we have a migration.
+    For this we are going to incorporate a schemer. (a class which is a blueprint for all the data</p>
+    <p>A model is a representation of data </p>
+     <h2>creating a model</h2>
+    <p>put the class.
+        Under this the state will be a name.
+        The name will have the name of the model and the data type then specify the length
+    </p>
+    <p>The model class will look like this</p>
+    <code>
+        class Produce(models.Model):  #name of the table
+    name = models.CharField(max_length=200)  #string
+    price = models.IntegerField()  #numbers
+    </code>
+
+    <h3>migrations</h3>
+    <p>Next we make migrations.We use the code below in the terminal</p>
+    <code>python manage.py make migrations</code>
+    <img src="img_1.png" alt="image showing migration">
+    <p>After doing migration do migrate. Implement the code below in the terminal</p>
+    <code>python manage.py migrate</code>
+    <img src="img_2.png" alt="image of migration">
+
+    <h3>creating admin</h3>
+    <p>To do this we use a django super-user</p>
+    <code> python manage.py createsuperuser</code>
+    <p>You will be asked the questions below.</p>
+    <pre>
+        Username (leave blank to use 'issa'): JM  (must)
+        Email address:      (not must)
+        Password:       (must)
+        Password (again): (must)
+    </pre>
+    <img src="img_2.png" alt="superuser image">
+    <p>Django already hash our password</p>
+    <p>navigate to '/admin' endpoint next</p>
+
+    <h3>Next register our product to the admin</h3>
+    <p>To do this navigate to admin.py file by importing the models and input the code below</p>
+    <code>admin.site.register(models.Produce)</code>
+    <p>refresh the admin panel next to see the changes</p>
+    <img src="img_3.png" alt="registered app">
+
+
+    <h3>Displaying data on template</h3>
+    <p>Use the render to display the html document at views</p>
+    <p><mark>note</mark> While passing data in view function we use a context</p>
+
+    <h1>Time, we are going to use a template tomorrow</h1>
+
+
+
+
+
+
+
+
+
+
+        <footer>
+            <div><p>BACKEND</p></div>
+            <div>DJANGO</div>
+            <div><a href="https://www.mediafire.com/file/o5uvskzadcf49m2/wednesday.mp4/file">VIDEO</a> </div>
+        </footer>
+    </body>
+</html>
