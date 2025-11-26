@@ -90,10 +90,17 @@ Includes external references for deeper learning.
 - DOWNLOADING DATAMARIA FOR THE DATABASE
 - ![img_4.png](img_4.png)
 - add templates in app
-- in templates inlude html file
-- in views return render(request, 'main.html')
-- ginger callibrasing. adding an external html file in th e template html
+- in templates inClude html file or a folder where the file will reside
+- in views return render(request, 'Mkdir(folder)/main.html')
+- in setting tembplate include the template 
 
+-in the file
+- ginger callibrasing. adding an external html file in th e template html
+in the main to link route use the ginger calibrasing \
+''''
+- {% url 'home%'}--> this is an eexample
+''''
+- 
     {% include 'html file'%}
 - {% extend.html%} to incoporate the html file format
 - {% block content%}  to add content
