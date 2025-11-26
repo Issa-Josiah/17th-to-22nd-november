@@ -108,5 +108,33 @@ in the main to link route use the ginger calibrasing \
 - decoupling the app related templates
 - this is done by creating app subfolder  inside the templates directory in project
 - 
-- 
+                FRIDAY
+- Start by what we did on thursday
+- to give a document
+''''
+- {% extend 'html file' %}
+- {& block content &}
+- content
+- {& end content &}
+''''
 
+to include in the main folder we use
+
+
+''''
+{% include 'file' %} 
+''''
+
+- Next we will talk about the database
+- two types - structured database - and unstructured data base
+- the items in the datacell is the record or the data
+-   there is a relationship databasa system
+- there is also the standar querry lanagae relation database
+- relational database is used in the banks etc
+- in database create, update, delete,filter. This is the main function
+- commands include create, alter and drop
+- varchar, tinytext, blob, int,tinyint, bouble etc
+- structure (create to start, nameof table and datatype)
+- if you want to deal with sql start with postgress
+- use of maria db to create database
+- 

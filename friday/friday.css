@@ -5,7 +5,7 @@ border:3px solid ivory;
 h1,h2,h3,h4,h5,h6,img,p,ol,ul,a{
     margin: 10px 50px 10px 40px;
 }
-h1,h2,h3,h4,h5,h6,p{
+h1,h2,h3,h4,h5,h6,p,pre{
 text-transform: capitalize ;
 }
 img{
