@@ -4,4 +4,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def portfolio(request):
-    return render(request,'portfolio/main.html')
+    return render(request,'portfolio/man.html')
